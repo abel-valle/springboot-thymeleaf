@@ -37,4 +37,10 @@ public class HomeController {
 		model.addAttribute("models", models);
 		return "home :: models";
 	}
+	
+	@RequestMapping("/ajax/form")
+	public String ajaxBrands(Model model) {
+		//model.addAttribute("models", models);
+		return "fragments/form :: form-fragment";
+	}
 }

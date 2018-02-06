@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="form-fragment">
+		<div class="formwr">
+			<br/>
+			<form id="register" method="post" action="javascript:void(0)">
+				<input type="text" id="name" name="name" value=""
+					placeholder="Nombre"/>
+				<br/>
+				<div class="field-smallleft">
+					<input type="text" id="surname" name="surname" value="" placeholder="1er apellido"/><br/>
+				</div>
+				<div class="field-smallright">
+					<input type="text" id="surname2" name="surname2" value="" placeholder="2º apellido"/><br/>
+				</div>
+				<input type="text" id="email" name="email" value=""
+					placeholder="Email" /><span id="mail-result"></span><br/>
+				<input type="text" id="cpostal" name="cpostal" value="" maxlength="5"
+					placeholder="CódigoPostal"/>
+				
+				<br/>
+
+				<div class="confirm-policy">
+					<div class="cbox">
+						<input type="checkbox" value="acepto BBLL" id="cb-bbll"
+							class="bbll" name="check"/> <label for="cb-bbll"></label>
+					</div>
+					<span class="textcbtext">He leído y acepto las <a href="http://selection.clarel.es/bbll.html" target="_blank" id="legal"><u>Bases Legales</u></a></span>
+				</div>
+				<input id="regsub" class="right" type="submit" name="submit"
+					value="Participar"/>
+				<div class="warninghide">Debes leer y aceptar las bases legales.</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

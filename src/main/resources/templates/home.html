@@ -14,22 +14,75 @@
 
 <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css' />
 <script src="webjars/jquery/jquery.js"></script>
+<script src="webjars/jquery-validation/1.17.0/jquery.validate.min.js"></script>
 <script src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  	<script th:inline="javascript">
-  	/*[+
-	  	$(function() {
-	  		$("#model").load('/ajax/brands', $("#brand").serialize());
-		  	$('#brand').on('change', function() {
-		  		$("#model").load('/ajax/brands', $("#brand").serialize());
-		  	});
-	  	});
-
-	+]*/ 
+	<script th:inline="javascript">
+	/*[+
+		$(function() {
+		    $("#model").load('/ajax/brands', $("#brand").serialize());
+		    $('#brand').on('change', function() {
+		        $("#model").load('/ajax/brands', $("#brand").serialize());
+		    });
+		    $('#id-btn').on('click', function() {
+		        $("#id-frm").load('/ajax/form');
+		    });
+		});
+		
+		$(document).ajaxComplete(function(event, xhr, settings) {
+		    $('#register').submit(function(e) {
+		        e.preventDefault();
+		    }).validate({
+		        debug: false,
+		        rules: {
+		            "name": {
+		                required: true
+		            },
+		            "surname": {
+		                required: true
+		            },
+		            "surname2": {
+		                required: true
+		            },
+		            "email": {
+		                required: true,
+		                email: true
+		            },
+		            "cpostal": {
+		                required: true,
+		                number: true,
+		                minlength: 5,
+		                maxlength: 5
+		            }
+		        },
+		        messages: {
+		            "name": {
+		                required: "Introduce tu nombre."
+		            },
+		            "surname": {
+		                required: "Apellido obligatorio."
+		            },
+		            "surname2": {
+		                required: "Apellido obligatorio."
+		            },
+		            "email": {
+		                required: "Introduce tu correo.",
+		                email: "Correo en forma xxx@xxx.xx"
+		            },
+		            "cpostal": {
+		                required: "Introduce tu código postal.",
+		                number: "Introduce un código postal válido.",
+		                maxlength: "Debe contener 5 dígitos.",
+		                minlength: "Debe contener 5 dígitos."
+		            }
+		        }
+		    });
+		});	
+	+]*/
 	</script>
-    
+
 	<div class="container">
 		<div class="page-header">
 			<h1>Spring boot + thymeleaf + fragments + ajax - dmunozfer.es</h1>
@@ -61,6 +114,11 @@
 					</form>
 				</div>
 			</div>
+				
+			<h3>Formulario desde fragmento</h3>
+			<input id="id-btn" type="button" value="Mostrar formulario"/>
+			<br/>
+			<div id="id-frm"></div>
 		</div>
 	</div>
 </body>
